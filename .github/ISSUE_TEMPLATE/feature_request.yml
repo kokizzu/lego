@@ -9,6 +9,22 @@ body:
         - label: Yes, I've searched for similar issues on GitHub and didn't find any.
           required: true
 
+  - type: textarea
+    id: description
+    attributes:
+      label: Detailed Description
+      placeholder: Description.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Effective version of lego
+      description: "`latest` or `dev` are NOT effective versions."
+    validations:
+      required: true
+
   - type: dropdown
     id: type
     attributes:
@@ -18,30 +34,56 @@ body:
         - Library
         - Binary
         - Docker image
-        - Through Traefik
-        - Through Caddy
-        - Through Terraform ACME provider
-        - Through Bitnami
-        - Through 1Panel
-        - Through Zoraxy
-        - Through Certimate
         - go install
-        - Other
+        - Through 1Panel
+        - Through Bitnami
+        - Through Caddy
+        - Through Certimate
+        - Through Dokku plugin
+        - Through Home Assistant plugin
+        - Through Terraform ACME provider
+        - Through Traefik
+        - Through Zoraxy
+        - Other (please explain)
     validations:
       required: true
 
-  - type: input
-    id: version
+  - type: dropdown
+    id: usage
     attributes:
-      label: Effective version of lego
-      description: "`latest` or `dev` are not effective versions."
+      label: In which context are you using lego?
+      options:
+        - I don't know
+        - Personal use
+        - Professional use
+        - Personal and professional use
+        - Other (please explain)
     validations:
       required: true
 
-  - type: textarea
-    id: description
+  - type: checkboxes
+    id: validation
     attributes:
-      label: Detailed Description
-      placeholder: Description.
-    validations:
-      required: true
+      label: Validation
+      options:
+        - label: Yes, I've included all the information above (version, usage, etc.).
+          required: true
+
+  - type: checkboxes
+    id: value-affirmation
+    attributes:
+      label: 🌱 Supporting the Maintainer
+      options:
+        - label: "I find this project useful, and it has saved me time in my workflow/business."
+          required: false
+        - label: "I have starred this repository to help other developers find it."
+          required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        To keep the project stable and ensure I can continue responding to issues quickly, please consider **[sponsoring my work](https://donate.ldez.dev)**.
+        
+        Your support ensures this tool remains a reliable part of your toolkit for years to come.
+
+        [Support Project Longevity →](https://donate.ldez.dev)
